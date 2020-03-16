@@ -1,0 +1,4 @@
+C=$(kubectl get pods -n basic | grep basic | cut -d ' ' -f1)
+
+echo $C
+kubectl exec $C -it -n basic /bin/bash

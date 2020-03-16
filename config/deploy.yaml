@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic
+  labels:
+    app: basic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: basic
+  template:
+    metadata:
+      labels:  
+        app: basic
+    spec:
+      containers:
+      - name: basic
+        image: jduimovich/basic-1.1
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "64Mi"
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

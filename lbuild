@@ -1,0 +1,15 @@
+export CONTAINER_NAME=basic
+export REVISION=1.1
+export DEMO_CONTAINER=$DOCKER_USER/$CONTAINER_NAME-$REVISION
+
+echo DOCKER_USER: $DOCKER_USER 
+echo REVISION: $REVISION
+echo DEMO_CONTAINER: $DEMO_CONTAINER 
+
+docker build --build-arg DOCKER_USER=$DOCKER_USER  -t $DEMO_CONTAINER .
+if [ "$1". == "push." ]; then
+   docker push $DEMO_CONTAINER
+else
+   echo No push to $DOCKER_USER
+   echo Usage: $0 push to update dockerhub
+fi

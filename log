@@ -1,0 +1,5 @@
+
+NS=basic
+C=$(kubectl get pods -n $NS | grep basic | cut -d ' ' -f1)
+echo $C
+kubectl logs -f $C -n $_NS basic
